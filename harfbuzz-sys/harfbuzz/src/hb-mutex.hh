@@ -92,7 +92,7 @@ typedef volatile int hb_mutex_impl_t;
 #define hb_mutex_impl_finish(M)	HB_STMT_START {} HB_STMT_END
 
 
-#elif defined(HB_NO_MT)
+#else
 
 typedef int hb_mutex_impl_t;
 #define HB_MUTEX_IMPL_INIT	0
@@ -101,11 +101,6 @@ typedef int hb_mutex_impl_t;
 #define hb_mutex_impl_unlock(M)	HB_STMT_START {} HB_STMT_END
 #define hb_mutex_impl_finish(M)	HB_STMT_START {} HB_STMT_END
 
-
-#else
-
-#error "Could not find any system to define mutex macros."
-#error "Check hb-mutex.hh for possible resolutions."
 
 #endif
 

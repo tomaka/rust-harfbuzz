@@ -23,7 +23,7 @@ fn main() {
         .warnings(false)
         .file("harfbuzz/src/harfbuzz.cc");
 
-    if !target.contains("windows") {
+    if !target.contains("windows") && !target.contains("wasm32") {
         cfg.define("HAVE_PTHREAD", "1");
     }
 
